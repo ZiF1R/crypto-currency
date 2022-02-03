@@ -28,6 +28,8 @@ body {
 }
 
 #app {
+  display: flex;
+  flex-direction: row;
   font-family: 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -71,6 +71,7 @@ export default {
 <style scoped>
 .nav__container {
   width: calc(20% - 40px);
+  min-width: 250px;
   height: calc(100vh - 50px);
   background: #072125;
 

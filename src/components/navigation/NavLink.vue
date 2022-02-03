@@ -25,9 +25,10 @@ export default {
 
 <style scoped>
 .navLink {
-  width: calc(100% - 20px);
-  padding: 10px 0;
-  padding-left: 25px;
+  width: calc(100% - 15px);
+  padding: 9px 0;
+  padding-left: 15px;
+  margin-bottom: 6px;
   text-decoration: none;
   color: #bbb;
   transition: color .21s ease;
