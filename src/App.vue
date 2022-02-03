@@ -17,6 +17,7 @@ export default {
 :root {
   --primary-color: #42b983;
   --text-color: #2c3e50;
+  --nav-width: 20%;
 }
 
 body {

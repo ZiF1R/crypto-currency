@@ -25,7 +25,7 @@
 import NavLink from "@/components/navigation/NavLink.vue";
 
 export default {
-  name: "Nav",
+  name: "NavBar",
 
   components: {
     NavLink,
