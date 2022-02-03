@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "test": "editorconfig-cheker --exclude '.git|node_modules'",
     "deploy": "git co gh-pages && npm run build && git add -f ./dist && git comm \"New deploy\" && git deploy"
   },
   "dependencies": {
@@ -20,6 +21,7 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",
+    "editorconfig-checker": "^4.0.2",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0"
   },
