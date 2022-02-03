@@ -10,25 +10,6 @@ export default {
   components: {
     NavBar,
   },
-
-  created() {
-    // fetch("https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0", {
-    //   "method": "GET",
-    //   "headers": {
-    //     "x-rapidapi-host": "coinranking1.p.rapidapi.com",
-    //     "x-rapidapi-key": "1e65278a3emsh9f2b6c733cedaa9p1fa99cjsn2242707d1d90"
-    //   }
-    // })
-    // .then(response => {
-    //   return response.json();
-    // })
-    // .then(response => {
-    //   console.log(response);
-    // })
-    // .catch(err => {
-    //   console.error(err);
-    // });
-  },
 }
 </script>
 
