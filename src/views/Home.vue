@@ -24,7 +24,12 @@
           <span>{{ totalMarkets }}</span>
         </div>
       </div>
-      <h2>Top 10 Cryptos In The World</h2>
+      <div class="top-cryptos">
+        <h2>Top 10 Cryptos In The World</h2>
+        <router-link to="/cryptocurrencies">
+          Show more
+        </router-link>
+      </div>
       <coins-list :count="10" />
     </div>
   </div>
@@ -81,6 +86,28 @@ h2 {
   font-weight: 700;
   margin-bottom: 30px;
   margin-top: 0;
+}
+
+.top-cryptos {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+.top-cryptos > h2 {
+  margin: 0;
+}
+
+.top-cryptos > a {
+  font-weight: 500;
+  font-size: 1.3em;
+  color: var(--primary-color);
+  transition: var(--primary-transition);
+}
+
+.top-cryptos > a:hover {
+  color: var(--primary-color-hover);
 }
 
 .total-stats__content {
