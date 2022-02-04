@@ -66,7 +66,7 @@ export default {
     stats: {
       handler(data) {
         for (let prop in data)
-          this[prop] = millify(+data[prop]);
+          this.$data[prop] = millify(+data[prop]);
       },
       deep: true,
     },
