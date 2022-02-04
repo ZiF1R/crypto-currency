@@ -5,23 +5,23 @@
       <div class="total-stats__content">
         <div class="content__item">
           <h3>Total Cryptocurrencies</h3>
-          <span>{{ millifyStat(stats?.totalCoins) }}</span>
+          <span>{{ totalCoins }}</span>
         </div>
         <div class="content__item">
           <h3>Total Exchanges</h3>
-          <span>{{ millifyStat(stats?.totalExchanges) }}</span>
+          <span>{{ totalExchanges }}</span>
         </div>
         <div class="content__item">
           <h3>Total Market Cap</h3>
-          <span>${{ millifyStat(stats?.totalMarketCap) }}</span>
+          <span>${{ totalMarketCap }}</span>
         </div>
         <div class="content__item">
           <h3>Total 24h Volume</h3>
-          <span>${{ millifyStat(stats?.total24hVolume) }}</span>
+          <span>${{ total24hVolume }}</span>
         </div>
         <div class="content__item">
           <h3>Total Markets</h3>
-          <span>{{ millifyStat(stats?.totalMarkets) }}</span>
+          <span>{{ totalMarkets }}</span>
         </div>
       </div>
       <h2>Top 10 Cryptos In The World</h2>
@@ -46,6 +46,11 @@ export default {
     return {
       stats: null,
       coins: null,
+      totalCoins: 0,
+      totalExchanges: 0,
+      totalMarketCap: 0,
+      total24hVolume: 0,
+      totalMarkets: 0,
     };
   },
 
@@ -57,10 +62,14 @@ export default {
     })
   },
 
-  methods: {
-    millifyStat(stat = 0) {
-      return millify(+stat);
-    }
+  watch: {
+    stats: {
+      handler(data) {
+        for (let prop in data)
+          this[prop] = millify(+data[prop]);
+      },
+      deep: true,
+    },
   },
 }
 </script>
