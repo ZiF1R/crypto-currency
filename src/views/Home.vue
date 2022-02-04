@@ -32,11 +32,13 @@
       </div>
       <coins-list :count="10" />
     </div>
+    <footer-component />
   </div>
 </template>
 
 <script>
 import CoinsList from "@/components/CoinsList.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
 import { getCoins } from "@/data/cryptocurrencies.js";
 import millify from 'millify';
 
@@ -45,6 +47,7 @@ export default {
 
   components: {
     CoinsList,
+    FooterComponent,
   },
 
   data() {
@@ -77,7 +80,11 @@ export default {
 <style scoped>
 .container {
   position: relative;
-  width: calc(100% - var(--nav-width) - 120px);
+  width: calc(100% - var(--nav-width));
+  min-height: 100vh;
+}
+
+.total-stats {
   padding: 35px 60px 0;
 }
 
