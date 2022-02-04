@@ -25,7 +25,7 @@ body {
   margin: 0;
 
   font-size: 16px;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 #app {

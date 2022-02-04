@@ -70,6 +70,8 @@ export default {
 
 <style scoped>
 .nav__container {
+  top: 0%;
+  position: sticky;
   width: calc(20% - 40px);
   min-width: 250px;
   height: calc(100vh - 50px);

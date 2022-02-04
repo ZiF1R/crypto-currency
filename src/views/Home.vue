@@ -45,7 +45,6 @@ export default {
   data() {
     return {
       stats: null,
-      coins: null,
       totalCoins: 0,
       totalExchanges: 0,
       totalMarketCap: 0,
@@ -55,11 +54,7 @@ export default {
   },
 
   async mounted() {
-    await getCoins(1).then(response => {
-      this.stats = response.data.stats;
-      this.coins = response.data.coins;
-      console.log(response);
-    })
+    await getCoins(1).then(response => this.stats = response.data.stats);
   },
 
   watch: {
