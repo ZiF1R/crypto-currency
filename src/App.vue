@@ -16,6 +16,8 @@ export default {
 <style>
 :root {
   --primary-color: #42b983;
+  --primary-color-hover: #2b9968;
+  --primary-transition: all .21s ease;
   --text-color: #2c3e50;
   --nav-width: 20%;
 }
@@ -25,6 +27,7 @@ body {
   margin: 0;
 
   font-size: 16px;
+  background: #f0f5f2;
   overflow-x: hidden;
 }
 

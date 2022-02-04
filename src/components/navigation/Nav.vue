@@ -101,15 +101,15 @@ a {
 h1 {
   font-weight: 600;
   font-size: 1.8em;
-  color: #42b983;
+  color: var(--primary-color);
   margin: 0;
 
-  transition: color .21s ease;
+  transition: var(--primary-transition);
   cursor: pointer;
 }
 
 h1:hover {
-  color: #2b9968;
+  color: var(--primary-color-hover);
 }
 
 .nav__links {

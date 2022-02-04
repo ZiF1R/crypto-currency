@@ -31,7 +31,7 @@ export default {
   margin-bottom: 6px;
   text-decoration: none;
   color: #bbb;
-  transition: color .21s ease;
+  transition: var(--primary-transition);
   user-select: none;
 }
 
