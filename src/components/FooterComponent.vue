@@ -19,11 +19,15 @@ export default {
 <style scoped>
 footer {
   display: flex;
+  position: absolute;
   flex-direction: column;
   align-items: center;
-  padding: 25px;
-  background: var(--primary-background);
 
+  padding: 25px;
+  width: calc(100% - 50px);
+  bottom: 0;
+
+  background: var(--primary-background);
   color: #ffffff;
   font-size: 0.9em;
   font-weight: 400;

@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <div class="total-stats">
+    <loader-component v-if="isLoading" />
+    <div v-show="!isLoading" class="total-stats">
       <h2>Global Crypto Stats</h2>
       <div class="total-stats__content">
         <div class="content__item">
@@ -38,6 +39,7 @@
 
 <script>
 import CoinsList from "@/components/CoinsList.vue";
+import LoaderComponent from "@/components/Loader.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 import { getCoins } from "@/data/cryptocurrencies.js";
 import millify from 'millify';
@@ -47,11 +49,13 @@ export default {
 
   components: {
     CoinsList,
+    LoaderComponent,
     FooterComponent,
   },
 
   data() {
     return {
+      isLoading: true,
       stats: null,
       totalCoins: 0,
       totalExchanges: 0,
@@ -70,6 +74,7 @@ export default {
       handler(data) {
         for (let prop in data)
           this.$data[prop] = millify(+data[prop]);
+        this.isLoading = false;
       },
       deep: true,
     },
@@ -80,7 +85,6 @@ export default {
 <style scoped>
 .container {
   position: relative;
-  width: calc(100% - var(--nav-width));
   min-height: 100vh;
 }
 

@@ -27,9 +27,11 @@ body {
   padding: 0;
   margin: 0;
 
+  min-height: 100vh;
   font-size: 16px;
   background: #f0f5f2;
   overflow-x: hidden;
+  position: relative;
 }
 
 #app {

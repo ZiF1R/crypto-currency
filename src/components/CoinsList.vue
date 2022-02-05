@@ -52,6 +52,6 @@ export default {
   margin-right: -16px;
   row-gap: 32px;
 
-  margin-bottom: 50px;
+  margin-bottom: 170px;
 }
 </style>
