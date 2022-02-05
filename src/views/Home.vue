@@ -41,7 +41,7 @@
 import CoinsList from "@/components/CoinsList.vue";
 import LoaderComponent from "@/components/Loader.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
-import { getCoins } from "@/data/cryptocurrencies.js";
+import { getGlobalStats } from "@/data/cryptocurrencies.js";
 import millify from 'millify';
 
 export default {
@@ -66,7 +66,7 @@ export default {
   },
 
   async mounted() {
-    await getCoins(1).then(response => this.stats = response.data.stats);
+    await getGlobalStats().then(response => this.stats = response.data);
   },
 
   watch: {
