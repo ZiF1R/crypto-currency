@@ -16,6 +16,11 @@ const routes = [
     component: Cryptocurrencies
   },
   {
+    path: '/cryptocurrencies/:coin_name',
+    name: 'CoinPage',
+    component: () => import('../views/CoinPage.vue')
+  },
+  {
     path: '/exchanges',
     name: 'Exchanges',
     component: Exchanges

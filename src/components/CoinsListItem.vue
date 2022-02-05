@@ -1,5 +1,5 @@
 <template>
-  <div class="coin">
+  <router-link :to="'/cryptocurrencies/'+coin.uuid" class="coin">
     <div class="coin__header">
       <span class="coin__name">
         {{ number }}.
@@ -19,7 +19,7 @@
         Daily change: {{ change }}%
       </span>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -76,11 +76,13 @@ export default {
 <style scoped>
 .coin {
   background: #fff;
-  width: calc(280px - 32px);
+  width: 250px;
   margin: 0 16px;
   cursor: pointer;
   user-select: none;
 
+  color: var(--text-color);
+  text-decoration: none;
   transition: var(--primary-transition);
 }
 
@@ -100,7 +102,7 @@ hr {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 25px;
+  padding: 20px 25px 15px;
 }
 
 .coin__header > span {
@@ -115,7 +117,7 @@ hr {
 .coin__info {
   display: flex;
   flex-direction: column;
-  padding: 15px 25px 10px;
+  padding: 20px 25px 15px;
 }
 
 .coin__info > span {
