@@ -10,7 +10,7 @@ export const getGlobalStats = async () => {
   }).catch(err => console.error(err));
 
   return await answer.json();
-}
+};
 
 export const getCoins = async (limit) => {
   if (typeof limit !== "number" || limit < 0)
@@ -37,4 +37,16 @@ export const getCoin = async (coinUUID) => {
   }).catch(err => console.error(err));
 
   return await answer.json();
-}
+};
+
+export const getCoinHistory = async (coinUUID, timeSpan) => {
+  let answer = await fetch(`https://coinranking1.p.rapidapi.com/coin/${coinUUID}/history?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=${timeSpan}`, {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "coinranking1.p.rapidapi.com",
+      "x-rapidapi-key": API_KEY
+    }
+  }).catch(err => console.error(err));
+
+  return await answer.json();
+};
