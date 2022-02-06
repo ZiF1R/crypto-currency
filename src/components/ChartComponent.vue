@@ -9,7 +9,7 @@
       Current Price:
       <span class="stat">${{ currentPrice }}</span>
     </div>
-   <line-chart :chartData="chartData" />
+    <line-chart :chartData="chartData" />
   </div>
 </template>
 
