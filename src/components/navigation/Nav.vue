@@ -72,15 +72,27 @@ export default {
       (newRoute) => {
         // newRoute for example: /cryptocurrencies/Qwsogvtv82FCd -> path to page of Bitcoin cryptocurrency
         // newPath, which we split by '/' symbol, will be ['', 'cryptocurrencies', 'Qwsogvtv82FCd']
+        let newPath = newRoute.split("/");
+
+        // find current main routes in app
+        // for detecting page to which we are moved
+        let appRoutes = [];
+        this.links.forEach(link => appRoutes.push(link.path));
+
+        // detect page to which we are going on
+        let currentPage = "";
+        newPath.forEach(part => {
+          if (appRoutes.includes("/" + part))
+            currentPage = part;
+        });
 
         // in forEach loop we looking for equality of link.path (for this case current path
         // in menu should be /cryptocurrencies because page of each coin located in '/cryptocurrencies')
-        // and symbol '/' concatinated with second element of newRoute (in this case 'cryptocurrencies')
+        // and symbol '/' concatinated with currentPage (which we detected above, in this case 'cryptocurrencies')
         // it will be '/' + 'cryptocurrencies' => '/cryptocurrencies', what we are looking for
         // and than make it active link
-        let newPath = newRoute.split("/");
         this.links.forEach(link => {
-          if (link.path === "/" + newPath[1])
+          if (link.path === "/" + currentPage)
             this.activeLink = link;
         });
       },
