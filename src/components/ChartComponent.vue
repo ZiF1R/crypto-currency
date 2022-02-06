@@ -171,10 +171,12 @@ export default {
   position: relative;
   user-select: none;
   z-index: 10;
+  transition: var(--primary-transition);
 }
 
 .time-span-select:hover .select__active-item {
   border: 1px solid var(--primary-color);
+  box-shadow: 0 0 0 2px #76ecb770;
 }
 
 .select__active-item {
@@ -186,6 +188,7 @@ export default {
   border: 1px solid #ddd;
   cursor: pointer;
   background: #fff;
+  transition: var(--primary-transition);
 }
 
 .select__items {
