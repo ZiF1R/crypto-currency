@@ -1,6 +1,8 @@
 <template>
   <div class="coins-list">
+    <loader-component v-if="isLoading" />
     <coins-list-item
+      v-else
       :coin="coin"
       :number="index + 1"
       v-for="(coin, index) in coins"
@@ -12,6 +14,7 @@
 <script>
 import CoinsListItem from "@/components/CoinsListItem.vue";
 import { getCoins } from "@/data/cryptocurrencies.js";
+import LoaderComponent from "@/components/Loader.vue";
 
 export default {
   name: "CoinsList",
@@ -25,18 +28,21 @@ export default {
   },
 
   components: {
-    CoinsListItem
+    CoinsListItem,
+    LoaderComponent,
   },
 
   data() {
     return {
-      coins: null
+      coins: null,
+      isLoading: true,
     };
   },
 
   async mounted() {
     await getCoins(this.count).then(response => {
       this.coins = response.data.coins;
+      this.isLoading = false;
     });
   },
 }
