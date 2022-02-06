@@ -10,6 +10,7 @@
     "deploy": "npm run build && git add -f ./dist && git comm \"New deploy\" && git deploy"
   },
   "dependencies": {
+    "chart.js": "^3.7.0",
     "core-js": "^3.6.5",
     "millify": "^4.0.0",
     "vue": "^3.0.0",
