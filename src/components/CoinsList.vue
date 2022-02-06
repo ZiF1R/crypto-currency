@@ -1,13 +1,17 @@
 <template>
   <div class="coins-list">
     <loader-component v-if="isLoading" />
-    <coins-list-item
-      v-else
-      :coin="coin"
-      :number="index + 1"
-      v-for="(coin, index) in coins"
-      :key="index"
-    />
+    <template v-else>
+      <coins-list-item
+        :coin="coin"
+        :number="index + 1"
+        v-for="(coin, index) in filteredCoins"
+        :key="index"
+      />
+      <p v-if="filteredCoins.length < 1">
+        No matches found!
+      </p>
+    </template>
   </div>
 </template>
 
@@ -24,7 +28,12 @@ export default {
       type: Number,
       required: true,
       default: 1,
-    }
+    },
+    searchCoin: {
+      type: String,
+      required: false,
+      default: "",
+    },
   },
 
   components: {
@@ -35,6 +44,7 @@ export default {
   data() {
     return {
       coins: null,
+      filteredCoins: null,
       isLoading: true,
     };
   },
@@ -42,8 +52,18 @@ export default {
   async mounted() {
     await getCoins(this.count).then(response => {
       this.coins = response.data.coins;
+      this.filteredCoins = this.coins;
       this.isLoading = false;
     });
+  },
+
+  watch: {
+    searchCoin(searchVal) {
+      return this.filteredCoins =
+        this.coins.filter(coin =>
+          coin.name.toLowerCase().includes(searchVal.toLowerCase())
+        );
+    },
   },
 }
 </script>
@@ -59,5 +79,11 @@ export default {
   row-gap: 32px;
 
   margin-bottom: 170px;
+}
+
+p {
+  font-weight: 700;
+  font-size: 2em;
+  margin: 40px auto 0;
 }
 </style>
