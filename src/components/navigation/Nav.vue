@@ -64,7 +64,29 @@ export default {
     // set default active menu link
     if (this.activeLink === null)
       this.activeLink = this.links[0];
-  }
+
+    // detect URL changes called by links
+    // that are not related to the Nav component
+    this.$watch(
+      () => this.$route.href,
+      (newRoute) => {
+        // newRoute for example: /cryptocurrencies/Qwsogvtv82FCd -> path to page of Bitcoin cryptocurrency
+        // newPath, which we split by '/' symbol, will be ['', 'cryptocurrencies', 'Qwsogvtv82FCd']
+
+        // in forEach loop we looking for equality of link.path (for this case current path
+        // in menu should be /cryptocurrencies because page of each coin located in '/cryptocurrencies')
+        // and symbol '/' concatinated with second element of newRoute (in this case 'cryptocurrencies')
+        // it will be '/' + 'cryptocurrencies' => '/cryptocurrencies', what we are looking for
+        // and than make it active link
+        let newPath = newRoute.split("/");
+        console.log(newRoute, newPath)
+        this.links.forEach(link => {
+          if (link.path === "/" + newPath[1])
+            this.activeLink = link;
+        });
+      },
+    )
+  },
 }
 </script>
 
