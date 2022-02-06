@@ -65,7 +65,32 @@
           </div>
           <div class="description__links">
             <h2>Bitcoin Links</h2>
-            <div class="table links__table"></div>
+            <div class="table links__table">
+              <div class="table__item">
+                <div class="item__header">Website</div>
+                <a target="blank" href="https://bitcoin.org/en/" class="item__value">
+                  bitcoin.org
+                </a>
+              </div>
+              <div class="table__item">
+                <div class="item__header">Website</div>
+                <a target="blank" href="https://bitcoin.org/en/" class="item__value">
+                  bitcoin.org
+                </a>
+              </div>
+              <div class="table__item">
+                <div class="item__header">Website</div>
+                <a target="blank" href="https://bitcoin.org/en/" class="item__value">
+                  bitcoin.org
+                </a>
+              </div>
+              <div class="table__item">
+                <div class="item__header">Website</div>
+                <a target="blank" href="https://bitcoin.org/en/" class="item__value">
+                  bitcoin.org
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -90,24 +115,27 @@ export default {
 .coin {
   padding: 35px 60px 0;
   margin-bottom: 170px;
+  position: relative;
+  width: calc(100% - 120px);
 }
 
-h1, h2 {
+a {
+  text-decoration: none;
   color: var(--primary-color);
   transition: var(--primary-transition);
+}
 
-  cursor: pointer;
+a:hover {
+  text-decoration: underline;
+  color: var(--primary-color-hover);
 }
 
 .coin > h1 {
   text-align: center;
   margin-bottom: 15px;
   user-select: none;
-}
 
-h1:hover,
-h2:hover {
-  color: var(--primary-color-hover);
+  cursor: pointer;
 }
 
 .coin > p {
@@ -127,6 +155,10 @@ h2:hover {
   justify-content: space-between;
 }
 
+.coin__info > div > div {
+  width: 46%;
+}
+
 .table {
   display: flex;
   flex-direction: column;
@@ -140,10 +172,13 @@ h2:hover {
 
   border-bottom: 1px solid #ddd;
   transition: var(--primary-transition);
-  cursor: pointer;
 }
 
 .table__item:hover {
   background: #fff;
+}
+
+.item__value {
+  font-weight: 700;
 }
 </style>
