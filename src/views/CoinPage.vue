@@ -1,14 +1,14 @@
 <template>
   <div class="coin__container">
     <loader-component v-if="isLoading" />
-    <div v-show="!isLoading" class="coin__article">
+    <div v-else class="coin__article">
       <h1>{{ coinName }} ({{ coinSymbol }}) Price</h1>
       <p>
         {{ coinName }} live price in US Dollar (USD). View value statistics, market cap and supply
       </p>
       <hr />
       <h2>{{ coinName }} Price Chart</h2>
-      <!-- <coin-changes-graph /> -->
+      <chart-component :coinUUID="coinUUID" :chartColor="color" />
       <div class="coin__info">
         <div class="info__stats">
           <div class="stats__value">
@@ -61,6 +61,7 @@
 
 <script>
 import FooterComponent from "@/components/FooterComponent.vue";
+import ChartComponent from '@/components/ChartComponent.vue';
 import LoaderComponent from "@/components/Loader.vue";
 import { getCoin } from "@/data/cryptocurrencies.js";
 import millify from 'millify';
@@ -71,6 +72,7 @@ export default {
   components: {
     FooterComponent,
     LoaderComponent,
+    ChartComponent,
   },
 
   data() {
@@ -84,6 +86,7 @@ export default {
       coinName: null,
       coinSymbol: null,
       coinDesc: null,
+      color: null,
     };
   },
 
@@ -111,6 +114,7 @@ export default {
       this.valueStats = this.getValueStats();
       this.otherStats = this.getOtherStats();
       this.links = this.coin.links;
+      this.color = this.coin.color;
     },
     getValueStats() {
       return [
