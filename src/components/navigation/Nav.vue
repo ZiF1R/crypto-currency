@@ -79,7 +79,6 @@ export default {
         // it will be '/' + 'cryptocurrencies' => '/cryptocurrencies', what we are looking for
         // and than make it active link
         let newPath = newRoute.split("/");
-        console.log(newRoute, newPath)
         this.links.forEach(link => {
           if (link.path === "/" + newPath[1])
             this.activeLink = link;
