@@ -1,5 +1,5 @@
 <template>
-  <div class="article">
+  <a :href="article.url" target="blank" class="article">
     <div class="header">
       <h2>{{ article.name }}</h2>
       <img :src="icon || defaultIcon" />
@@ -12,7 +12,7 @@
       </div>
       <span class="publishedDate">{{ date }}</span>
     </div>
-  </div>
+  </a>
 </template>
 
 <script>
