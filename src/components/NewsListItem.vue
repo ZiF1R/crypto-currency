@@ -78,6 +78,18 @@ export default {
 h2 {
   margin: 0;
   margin-right: 10px;
+  font-size: 1.3em;
+
+  display: -webkit-box;
+  display: box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+p {
+  font-size: 0.9em;
 }
 
 img {

@@ -46,10 +46,25 @@ export default {
   },
 
   async created() {
-    await getNews(this.count).then(response => {
-      this.news = response.value;
+    await this.getCryptoNews();
+  },
+
+  methods: {
+    async getCryptoNews(category) {
+      category = this.query === '' ? null : this.query;
+      await getNews(this.count, category).then(response => {
+        this.news = response.value;
+        this.isLoading = false;
+      });
+    },
+  },
+
+  watch: {
+    async query(newCategory) {
+      this.isLoading = true;
+      await this.getCryptoNews(newCategory);
       this.isLoading = false;
-    });
+    }
   },
 }
 </script>
