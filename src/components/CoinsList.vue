@@ -77,8 +77,6 @@ export default {
   margin-left: -16px;
   margin-right: -16px;
   row-gap: 32px;
-
-  margin-bottom: 170px;
 }
 
 p {

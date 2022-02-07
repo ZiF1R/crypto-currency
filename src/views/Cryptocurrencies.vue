@@ -33,6 +33,7 @@ export default {
 <style scoped>
 main {
   padding: 35px 60px 0;
+  margin-bottom: 170px;
 }
 
 h1 {
