@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <loader-component v-if="isLoading" />
-    <div v-show="!isLoading" class="total-stats">
+    <div v-show="!isLoading" class="content__preview">
       <h2>Global Crypto Stats</h2>
-      <div class="total-stats__content">
+      <div class="total-stats">
         <div class="content__item">
           <h3>Total Cryptocurrencies</h3>
           <span>{{ totalCoins }}</span>
@@ -25,13 +25,16 @@
           <span>{{ totalMarkets }}</span>
         </div>
       </div>
-      <div class="top-cryptos">
+      <div class="section__header">
         <h2>Top 10 Cryptos In The World</h2>
-        <router-link to="/cryptocurrencies">
-          Show more
-        </router-link>
+        <router-link to="/cryptocurrencies">Show more</router-link>
       </div>
       <coins-list :count="10" />
+      <div class="section__header">
+        <h2 class="news">Latest Cryto News</h2>
+        <router-link to="/news">Show more</router-link>
+      </div>
+      <news-list :count="6" />
     </div>
     <footer-component />
   </div>
@@ -39,6 +42,7 @@
 
 <script>
 import CoinsList from "@/components/CoinsList.vue";
+import NewsList from "@/components/NewsList.vue";
 import LoaderComponent from "@/components/Loader.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 import { getGlobalStats } from "@/data/cryptocurrencies.js";
@@ -49,6 +53,7 @@ export default {
 
   components: {
     CoinsList,
+    NewsList,
     LoaderComponent,
     FooterComponent,
   },
@@ -88,8 +93,9 @@ export default {
   min-height: 100vh;
 }
 
-.total-stats {
+.content__preview {
   padding: 35px 60px 0;
+  margin-bottom: 170px;
 }
 
 h2 {
@@ -99,29 +105,33 @@ h2 {
   margin-top: 0;
 }
 
-.top-cryptos {
+.section__header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   margin-bottom: 35px;
 }
 
-.top-cryptos > h2 {
+.section__header > h2 {
   margin: 0;
 }
 
-.top-cryptos > a {
+h2.news {
+  margin-top: 60px;
+}
+
+.section__header > a {
   font-weight: 500;
   font-size: 1.3em;
   color: var(--primary-color);
   transition: var(--primary-transition);
 }
 
-.top-cryptos > a:hover {
+.section__header > a:hover {
   color: var(--primary-color-hover);
 }
 
-.total-stats__content {
+.total-stats {
   position: relative;
   display: flex;
   flex-direction: row;
