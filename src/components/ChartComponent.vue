@@ -135,7 +135,7 @@ export default {
       let resultDate = "";
 
       const getInRightFormat = (number) => number = number < 10 ? "0" + number : number;
-      let day = getInRightFormat(date.getUTCDay() + 1);
+      let day = getInRightFormat(date.getUTCDate() + 1);
       let month = getInRightFormat(date.getUTCMonth() + 1);
       resultDate += `${day}/${month}/${date.getUTCFullYear()} `;
 
