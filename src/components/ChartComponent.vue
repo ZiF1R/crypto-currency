@@ -114,7 +114,7 @@ export default {
       let history = Array.from(answer.data.history).reverse();
 
       let labels = [], data = [];
-      let pointsCount = 50;
+      let pointsCount = 250 > history.length ? history.length : 250;
       let increment = ~~(history.length / pointsCount);
       for (let i = 0; i < history.length; i += increment) {
         // the timeStamp comes in seconds but
