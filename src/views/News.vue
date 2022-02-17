@@ -2,7 +2,7 @@
   <div class="container">
     <loader-component v-if="isLoading" />
     <div v-else class="news">
-      <h2>Latest Cryto News</h2>
+      <h1>Latest Cryto News</h1>
       <div style="display: flex">
         <div class="cryptocurrency-select" @mouseleave="showOptions = false">
           <div class="select__active-item" @mouseenter="showOptions = true">
@@ -74,7 +74,7 @@ export default {
   margin-bottom: 170px;
 }
 
-h2 {
+h1 {
   margin-top: 0;
   margin-bottom: 30px;
 }
@@ -104,7 +104,7 @@ h2 {
   cursor: pointer;
   background: #fff;
   transition: var(--primary-transition);
-  width: 200px;
+  min-width: 200px;
 }
 
 .select__items {
