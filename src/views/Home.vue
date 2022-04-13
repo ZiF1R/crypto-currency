@@ -77,8 +77,11 @@ export default {
   watch: {
     stats: {
       handler(data) {
-        for (let prop in data)
-          this.$data[prop] = millify(+data[prop]);
+        for (let prop in data) {
+          console.log(prop, data[prop])
+          if (!Array.isArray(data[prop]))
+            this.$data[prop] = millify(+data[prop]);
+        }
         this.isLoading = false;
       },
       deep: true,
